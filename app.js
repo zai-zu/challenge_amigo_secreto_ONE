@@ -2,14 +2,9 @@ let limiteAmigosSorteados = 1;
 let listaAmigos = [];
 let limiteAmigos = 15;
 
-function asignarTextoElemento(elemento, texto) {
-    let elementoHTML = document.querySelector(elemento);
-    elementoHTML.innerHTML = texto;
-    return;
-}
 
 // Función para agregar un amigo
-let agregarAmigo = () => {
+function agregarAmigo ()  {
     // Obtener el valor del input
     let inputAmigo = document.getElementById('amigo').value;
 
@@ -48,5 +43,18 @@ function actualizarListadeAmigos() {
     listaAmigosHTML.innerHTML = contenido;
 }
 
-// Llamada inicial para mostrar la lista vacía (opcional)
 actualizarListadeAmigos();
+
+//Función para sortear amigo en lista
+function sortearAmigo() {
+    if (listaAmigos.length === 0) {
+        alert("No hay amigos para sortear");
+        return;
+    }
+    let amigoSorteado = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
+    document.getElementById("listaAmigos").innerHTML = "";
+
+    let mostrarAmigoSorteado = document.getElementById("resultado");
+    mostrarAmigoSorteado.innerHTML = amigoSorteado;
+
+}
